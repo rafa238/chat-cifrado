@@ -3,15 +3,21 @@ package cifrado.rsa;
 import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 public class Ventana extends javax.swing.JFrame {
-
+    
+    
+    Cliente cliente;
     public Ventana() {
         initComponents();
         String nombre = JOptionPane.showInputDialog("Ingresa tu nombre", null);
-        Cliente cliente = new Cliente(nombre);
+        cliente = new Cliente(nombre, this);
         jPanel1.setLayout(new BoxLayout(jPanel1, BoxLayout.Y_AXIS));
         jPanel1.add(new JLabel("Mensaje1"));
+    }
+    public JTextField getjtf1(){
+        return txtMensaje;
     }
 
     @SuppressWarnings("unchecked")
@@ -40,10 +46,15 @@ public class Ventana extends javax.swing.JFrame {
         pnlMensajes.setViewportView(jPanel1);
 
         btEnviar.setText("Enviar");
+        btEnviar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btEnviarActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Mensaje:");
 
-        txtMensaje.setText("");
+        txtMensaje.setText("Mensaiajsdfiasjdfbapisdf");
         txtMensaje.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtMensajeActionPerformed(evt);
@@ -86,6 +97,10 @@ public class Ventana extends javax.swing.JFrame {
     private void txtMensajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMensajeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtMensajeActionPerformed
+
+    private void btEnviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEnviarActionPerformed
+        cliente.hilo1.setDiegounmensaje(true);
+    }//GEN-LAST:event_btEnviarActionPerformed
 
     public static void main(String args[]) {
         

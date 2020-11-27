@@ -5,7 +5,7 @@ import java.net.Socket;
 import java.util.ArrayList;
 
 public class Servidor {
-    ;
+    
     ArrayList<Socket> listaCliente=new ArrayList();	    
     public Servidor(){        
         try{            
@@ -25,4 +25,4 @@ public class Servidor {
     public static void main (String [] args){        
         new Servidor(); 
     }
-}
+}                                                                                        
