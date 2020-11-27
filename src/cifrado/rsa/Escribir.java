@@ -1,9 +1,16 @@
 package cifrado.rsa;
 
+
+
+import com.google.gson.Gson;
+
 import java.io.DataOutputStream;
 import java.io.OutputStream;
+import java.math.BigInteger;
 import java.net.Socket;
+import java.util.Arrays;
 import java.util.Scanner;
+
 
 class Escribir extends Thread {
     
@@ -25,15 +32,32 @@ class Escribir extends Thread {
         try{
             boolean terminar=false;
             String mensaje;
+            String mensajeDes;
             while(!terminar){      // Creamos bucle infinito para escritura
                 OutputStream os= socket.getOutputStream();
                 DataOutputStream flujoDOS = new DataOutputStream(os);
+                BigInteger[] cifrado;
                 
                 if(diegounmensaje){
                     
+                    RSA rsa = new RSA(100);
+                    rsa.generarPrimo();
+                    rsa.generarClaves();
                     mensaje=p.getjtf1().getText();
+                    cifrado = rsa.encriptar(mensaje);
                     
-                    flujoDOS.writeUTF(name+" dice: "+mensaje);  //Si no se ingresa salir, se envía mensaje de escritura
+                    //mensajeDes=rsa.descifrar(cifrado);
+                    
+                    Gson g = new Gson();
+                    DatosJSon dtjs= new DatosJSon(cifrado,rsa.getD(),rsa.getN());
+//
+//                    JSONParser parser = new JSONParser();
+//                    JSONObject json = (JSONObject) parser. parse(g.toJson(dtjs)+"");
+                    DatosJSon hlhl = g.fromJson(g.toJson(dtjs), DatosJSon.class);
+                    //String d = json.get("d").toString(); 
+                    
+                    //flujoDOS.writeUTF(name+" dice: "+mensajeDes);
+                    flujoDOS.writeUTF(name+" dice: "+Arrays.toString(hlhl.getCifrado()));  //Si no se ingresa salir, se envía mensaje de escritura
                     diegounmensaje=false;
                 }
                 

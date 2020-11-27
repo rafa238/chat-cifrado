@@ -19,6 +19,7 @@ public class Ventana extends javax.swing.JFrame {
     public JTextField getjtf1(){
         return txtMensaje;
     }
+    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
