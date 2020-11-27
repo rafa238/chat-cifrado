@@ -9,7 +9,7 @@ public class Servidor {
     ArrayList<Socket> listaCliente=new ArrayList();	    
     public Servidor(){        
         try{            
-            ServerSocket ss = new ServerSocket (5000);			
+            ServerSocket ss = new ServerSocket(5000);			
             Socket cliente;            
             while(true){				
                 cliente = ss.accept();

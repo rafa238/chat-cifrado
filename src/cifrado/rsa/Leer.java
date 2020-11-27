@@ -15,7 +15,9 @@ class Leer extends Thread {
             while(true){     //bucle infinito para lectura
                 InputStream aux = socket.getInputStream();
                 DataInputStream flujo = new DataInputStream( aux );
-                System.out.println(flujo.readUTF() );
+//                JSONObject json = (JSONObject) parser.parse(stringToParse);
+                //System.out.println(flujo.readUTF());
+                
             }
         }catch(Exception e){
             System.out.println("Error de leer");
