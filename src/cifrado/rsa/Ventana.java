@@ -13,8 +13,8 @@ public class Ventana extends javax.swing.JFrame {
         initComponents();
         String nombre = JOptionPane.showInputDialog("Ingresa tu nombre", null);
         cliente = new Cliente(nombre, this);
-        jPanel1.setLayout(new BoxLayout(jPanel1, BoxLayout.Y_AXIS));
-        jPanel1.add(new JLabel("Mensaje1"));
+//        jPanel1.setLayout(new BoxLayout(jPanel1, BoxLayout.Y_AXIS));
+//        jPanel1.add(new JLabel("Mensaje1"));
     }
     public JTextField getjtf1(){
         return txtMensaje;
@@ -25,25 +25,16 @@ public class Ventana extends javax.swing.JFrame {
     private void initComponents() {
 
         pnlMensajes = new javax.swing.JScrollPane();
-        jPanel1 = new javax.swing.JPanel();
+        textArea = new javax.swing.JTextArea();
         btEnviar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         txtMensaje = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 270, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 243, Short.MAX_VALUE)
-        );
-
-        pnlMensajes.setViewportView(jPanel1);
+        textArea.setColumns(20);
+        textArea.setRows(5);
+        pnlMensajes.setViewportView(textArea);
 
         btEnviar.setText("Enviar");
         btEnviar.addActionListener(new java.awt.event.ActionListener() {
@@ -136,8 +127,8 @@ public class Ventana extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btEnviar;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane pnlMensajes;
+    public javax.swing.JTextArea textArea;
     private javax.swing.JTextField txtMensaje;
     // End of variables declaration//GEN-END:variables
 }

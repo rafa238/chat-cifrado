@@ -23,7 +23,7 @@ public class Cliente{
 //            String nombre=entrada.next();	
 
             hilo1=new Escribir(skCliente,nombre,p);  //hilo que escribe se envía el nombre ingresado por el cliente y el socket 
-            hilo2= new Leer(skCliente);    //hilo que lee, se envía como parámetro el Socket				   skCliente.close();         
+            hilo2= new Leer(skCliente, p);    //hilo que lee, se envía como parámetro el Socket				   skCliente.close();         
         }catch (Exception e)    {  
             e.printStackTrace();      
         }     
