@@ -15,7 +15,7 @@ public class Cliente{
         this.p=p;
         this.hilo1=null;
         try{
-            String host = "localhost";
+            String host = "25.107.136.158";
             
             Inet4Address in = (Inet4Address) Inet4Address.getByName(host);
             Socket skCliente = new Socket (in, 5000);         			

@@ -15,11 +15,12 @@ public class DatosJSon {
     private BigInteger[] cifrado;
     private BigInteger d;
     private BigInteger n;
-    
-    public DatosJSon(BigInteger[] cifrado,BigInteger d,BigInteger n){
+    private String nombre;
+    public DatosJSon(BigInteger[] cifrado,BigInteger d,BigInteger n, String nombre){
         this.cifrado=cifrado;
         this.d=d;
         this.n=n;
+        this.nombre = nombre;
     }
 
     public BigInteger[] getCifrado() {
@@ -44,6 +45,14 @@ public class DatosJSon {
 
     public void setN(BigInteger n) {
         this.n = n;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
     
 }

@@ -49,15 +49,8 @@ class Escribir extends Thread {
                     //mensajeDes=rsa.descifrar(cifrado);
                     
                     Gson g = new Gson();
-                    DatosJSon dtjs= new DatosJSon(cifrado,rsa.getD(),rsa.getN());
-//
-//                    JSONParser parser = new JSONParser();
-//                    JSONObject json = (JSONObject) parser. parse(g.toJson(dtjs)+"");
-                    DatosJSon hlhl = g.fromJson(g.toJson(dtjs), DatosJSon.class);
-                    //String d = json.get("d").toString(); 
-                    
-                    //flujoDOS.writeUTF(name+" dice: "+mensajeDes);
-                    flujoDOS.writeUTF(name+" dice: "+Arrays.toString(hlhl.getCifrado()));  //Si no se ingresa salir, se envía mensaje de escritura
+                    DatosJSon dtjs= new DatosJSon(cifrado,rsa.getD(),rsa.getN(), name);
+                    flujoDOS.writeUTF(g.toJson(dtjs));  //Si no se ingresa salir, se envía mensaje de escritura
                     diegounmensaje=false;
                 }
                 

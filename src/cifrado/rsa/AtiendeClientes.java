@@ -30,7 +30,8 @@ AtiendeClientes(ArrayList<Socket> lista, Socket socket){
                     }else{
                         OutputStream os = listaCliente.get(cont).getOutputStream();
                         DataOutputStream flujoDOS = new DataOutputStream(os);
-                        flujoDOS.writeUTF(mensaje); 
+                        flujoDOS.writeUTF(mensaje);
+                        System.out.println(mensaje);
                     }
                 }
             }catch(Exception e) { System.out.println("Error de comunicacion"+e);   }
